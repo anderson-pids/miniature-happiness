@@ -45,6 +45,17 @@ services:
     #Alternatively for non-root images:
     # - 80:8080
     # - 443:4433
+  traefik:
+    image: traefik:2.6
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yaml:/traefik.yaml:ro
+      - ./conf/:/etc/traefik/conf
+      - ./shared/:/shared
 
 volumes:
   database_volume:
