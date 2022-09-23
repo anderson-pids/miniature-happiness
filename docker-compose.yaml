@@ -25,17 +25,16 @@ services:
       DATASOURCES_DEFAULT_USERNAME: "passbolt"
       DATASOURCES_DEFAULT_PASSWORD: "P4ssb0lt"
       DATASOURCES_DEFAULT_DATABASE: "passbolt"
-      # PASSBOLT_SSL_FORCE: "false"
+      # PASSBOLT_SSL_FORCE: "false"  # to access passbolt without ssl
       
-      #### infra@hellosaks.com 
       EMAIL_TRANSPORT_DEFAULT_HOST: "smtp.gmail.com"
       EMAIL_TRANSPORT_DEFAULT_PORT: "587"
       EMAIL_DEFAULT_FROM: ${SENDER_EMAIL_USERNAME}
       EMAIL_TRANSPORT_DEFAULT_USERNAME: ${SENDER_EMAIL_USERNAME}
       EMAIL_TRANSPORT_DEFAULT_PASSWORD: ${SENDER_EMAIL_PASSWORD}
-
-      EMAIL_TRANSPORT_DEFAULT_CLIENT: "191.189.21.13" # my current public IP, because google blocks localhost
       EMAIL_TRANSPORT_DEFAULT_TLS: "true"
+
+      # EMAIL_TRANSPORT_DEFAULT_CLIENT: "ip.ad.dr.es" # in case of localhost get blocked by google, use current public IP.
     volumes:
       - gpg_volume:/etc/passbolt/gpg
       - jwt_volume:/etc/passbolt/jwt
